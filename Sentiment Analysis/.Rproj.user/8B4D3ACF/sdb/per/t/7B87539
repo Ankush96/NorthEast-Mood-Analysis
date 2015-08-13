@@ -1,12 +1,12 @@
 {
-    "contents" : "library(\"rvest\")\n# Sys.setenv(http_proxy=\"10.3.100.207:8080\") \nnews_links<-html(\"http://www.northeasttoday.in/\")\n\nlinks<-news_links %>%\n  html_nodes(\".content-category a \") %>%\n  html_attr(\"href\")\n\nhalf = length(links)/2\na = (1:half)\na= 2*a\na=a-1\nlinks<-links[a]\n\nprint(links)",
+    "contents" : "library(\"rvest\")\n# Sys.setenv(http_proxy=\"10.3.100.207:8080\") \nnews_links<-html(\"http://www.northeasttoday.in/\")\n\nlinks<-news_links %>%\n  html_nodes(\".content-category a \") %>%\n  html_attr(\"href\")\n\nhalf = length(links)/2\na = (1:half)\na= 2*a\na=a-1\nlinks<-links[a]\n\n#print(links)",
     "created" : 1439473828653.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3413120737",
+    "hash" : "2088226116",
     "id" : "7B87539",
-    "lastKnownWriteTime" : 1439474141,
+    "lastKnownWriteTime" : 1439475073,
     "path" : "~/KDAG/North-East Sentiment Analysis/Sentiment Analysis/News_links_scraper.R",
     "project_path" : "News_links_scraper.R",
     "properties" : {

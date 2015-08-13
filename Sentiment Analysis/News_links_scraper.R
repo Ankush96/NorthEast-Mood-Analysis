@@ -12,4 +12,4 @@ a= 2*a
 a=a-1
 links<-links[a]
 
-print(links)
+#print(links)

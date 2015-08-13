@@ -1,0 +1,18 @@
+{
+    "contents" : "heading={}\ncontent={}\ndate={}\nfor (i in 1:length(links)){\n  a<-html(links[i])\n  heading[i]<-a %>% html_node(\".content-article-title h1\") %>% html_text()    #Read heading\n  print(heading[i])                               \n  content_list<-a %>% html_nodes(\".shortcode-content p\") %>% html_text()      #Takes each paragraph as an item in a list\n  content[i]<-paste(content_list,sep=\" \",collapse = \" \")\n  #print(content[i])\n  date[i]<-a %>% html_node(\".calendar-date\") %>% html_text()\n}\ndf<-data.frame(heading,date,content)\nnames(df)<-c(\"Heading\",\"Date\",\"Content\")\nwrite.csv(df,\"NortheastToday.csv\")\nprint(\"Exported to csv format\")",
+    "created" : 1439475077491.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4064558290",
+    "id" : "FA9B1008",
+    "lastKnownWriteTime" : 1439477799,
+    "path" : "~/KDAG/North-East Sentiment Analysis/Sentiment Analysis/Extract-articles.R",
+    "project_path" : "Extract-articles.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
