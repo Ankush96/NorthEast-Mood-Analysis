@@ -1,12 +1,12 @@
 {
-    "contents" : "heading={}\ncontent={}\ndate={}\nfor (i in 1:length(links)){\n  a<-html(links[i])\n  heading[i]<-a %>% html_node(\".content-article-title h1\") %>% html_text()    #Read heading\n  print(heading[i])                               \n  content_list<-a %>% html_nodes(\".shortcode-content p\") %>% html_text()      #Takes each paragraph as an item in a list\n  content[i]<-paste(content_list,sep=\" \",collapse = \" \")\n  #print(content[i])\n  date[i]<-a %>% html_node(\".calendar-date\") %>% html_text()\n}\ndf<-data.frame(heading,date,content)\nnames(df)<-c(\"Heading\",\"Date\",\"Content\")\nwrite.csv(df,\"NortheastToday.csv\")\nprint(\"Exported to csv format\")",
+    "contents" : "library(\"stringr\")\nheading={}\ncontent={}\ndate={}\n#---------------------------NorthEastToday-----------------------------------\n\nfor (i in 1:length(links1)){\n  a<-html(links1[i])\n  heading[i]<-a %>% html_node(\".content-article-title h1\") %>% html_text()    #Read heading\n  print(heading[i])                               \n  content_list<-a %>% html_nodes(\".shortcode-content p\") %>% html_text()      #Takes each paragraph as an item in a list\n  content[i]<-paste(content_list,sep=\" \",collapse = \" \")\n  print(content[i])\n  date[i]<-a %>% html_node(\".calendar-date\") %>% html_text()\n}\ndf<-data.frame(heading,date,content)\nnames(df)<-c(\"Heading\",\"Date\",\"Content\")\nwrite.csv(df,\"NortheastToday.csv\")\nprint(\"Exported to csv format\")\n\n#---------------------------------------------------------------------\n\n#---------------------------ZeeNews-----------------------------------\n\nfor (i in 1:length(links2)){\n  a<-html(links2[i])\n  heading[i]<-a %>% html_node(\".full-story-head h1\") %>% html_text()    #Read heading\n  print(heading[i])                               \n  content_list<-a %>% html_nodes(\".even p\") %>% html_text()      #Takes each paragraph as an item in a list\n  content[i]<-paste(content_list,sep=\" \",collapse = \"\")\n  print(content[i])\n  date[i]<-a %>% html_node(\".writer\") %>% html_text()\n  date[i]<-paste(word(date[i],-5),word(date[i],-4),word(date[i],-3))\n  print(date[i])\n}\ndf<-data.frame(heading,date,content)\nnames(df)<-c(\"Heading\",\"Date\",\"Content\")\nwrite.csv(df,\"ZeeNews.csv\")\nprint(\"Exported to csv format\")\n#---------------------------------------------------------------------\n",
     "created" : 1439475077491.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "4064558290",
+    "hash" : "2497737671",
     "id" : "FA9B1008",
-    "lastKnownWriteTime" : 1439477799,
+    "lastKnownWriteTime" : 1439495803,
     "path" : "~/KDAG/North-East Sentiment Analysis/Sentiment Analysis/Extract-articles.R",
     "project_path" : "Extract-articles.R",
     "properties" : {

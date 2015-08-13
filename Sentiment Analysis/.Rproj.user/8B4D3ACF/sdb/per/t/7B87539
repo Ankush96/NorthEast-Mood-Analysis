@@ -1,12 +1,12 @@
 {
-    "contents" : "library(\"rvest\")\n# Sys.setenv(http_proxy=\"10.3.100.207:8080\") \nnews_links<-html(\"http://www.northeasttoday.in/\")\n\nlinks<-news_links %>%\n  html_nodes(\".content-category a \") %>%\n  html_attr(\"href\")\n\nhalf = length(links)/2\na = (1:half)\na= 2*a\na=a-1\nlinks<-links[a]\n\n#print(links)",
+    "contents" : "library(\"rvest\")\n# Sys.setenv(http_proxy=\"10.3.100.207:8080\") \n\n#--------------------NorthEastToday--------------------------------\n\nnews_links<-html(\"http://www.northeasttoday.in/\")\n  links1<-news_links %>%\n  html_nodes(\".content-category a \") %>%\n  html_attr(\"href\")\n\nhalf = length(links1)/2\na = (1:half)\na= 2*a\na=a-1\nlinks1<-links1[a]\n\nprint(links1)\n\n#---------------------------------------------------------------------\n\n#---------------------------ZeeNews-----------------------------------\n\nnews_links<-html(\"http://zeenews.india.com/state/north-east\")\nlinks2<-news_links %>%\n  html_nodes(\".lead-health-ab a\") %>%\n  html_attr(\"href\")\nfor(i in 1:length(links2))\n{\n  links2[i]=paste(\"http://zeenews.india.com\",links2[i],sep=\"\")\n}\nprint(links2)\n#---------------------------------------------------------------------",
     "created" : 1439473828653.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2088226116",
+    "hash" : "787493560",
     "id" : "7B87539",
-    "lastKnownWriteTime" : 1439475073,
+    "lastKnownWriteTime" : 1439493988,
     "path" : "~/KDAG/North-East Sentiment Analysis/Sentiment Analysis/News_links_scraper.R",
     "project_path" : "News_links_scraper.R",
     "properties" : {
