@@ -24,7 +24,7 @@ print("Exported to csv format")
 
 for (i in 1:length(links2)){
   a<-html(links2[i])
-  heading[i]<-a %>% html_node(".full-story-head h1") %>% html_text()    #Read heading
+  heading[i]<-a %>% html_node("h1") %>% html_text()    #Read heading
   print(heading[i])                               
   content_list<-a %>% html_nodes(".even p") %>% html_text()      #Takes each paragraph as an item in a list
   content[i]<-paste(content_list,sep=" ",collapse = "")
